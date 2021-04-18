@@ -4,6 +4,7 @@ Matlab. Filter FFT data to octave-band and fractional octave-band.
 
 ## Use
 
+More information about generation of central frequencies on my repository: [getANSIfrequencies](https://github.com/jmrplens/getANSIfrequencies)
 ```matlab
 [Oct,fc,fl,fu] = FFT2octave(f,fftdata,b,varargin)
 ```
