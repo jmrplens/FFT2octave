@@ -69,14 +69,14 @@ for nOct = 1:length(fc)
     % Acumulate
     switch lower(type)
         case 'db' % Logarithmic
-            Oct(nOct) = 10*log10(sum(10.^(OctArr/10)));
+            Oct(nOct) = 10*log10(sqrt(sum((10.^(OctArr/10)).^2))); % rms
             if floor(BW(nOct)/deltaf) <= numel(OctArr)
                 % Correction factor. Product by frequency increment
                 Oct(nOct) = Oct(nOct) + 10*log10( BW(nOct)/(deltaf*numel(OctArr)) );
             end
             
         otherwise % Linear
-            Oct(nOct) = sum(OctArr);
+            Oct(nOct) = sqrt(sum(OctArr.^2)); %  rms
             if floor(BW(nOct)/deltaf) <= numel(OctArr)
                 % Correction factor. Product by frequency increment
                 Oct(nOct) = Oct(nOct) * BW(nOct)/(deltaf*numel(OctArr));
